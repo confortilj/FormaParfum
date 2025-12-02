@@ -3,446 +3,145 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Forma Parfum | Custom Perfume Studio</title>
+  <title>Forma Parfum | Hamptons Natural Perfumery</title>
   <style>
     :root {
-      --bg: #0c0c0f;
-      --bg-secondary: #101018;
-      --bg-gradient: radial-gradient(circle at 30% 20%, rgba(255, 223, 186, 0.08), transparent 45%),
-        radial-gradient(circle at 80% 0%, rgba(255, 223, 186, 0.05), transparent 35%),
-        linear-gradient(180deg, #0f1015 0%, #0b0c0f 100%);
-      --card: rgba(18, 18, 24, 0.92);
-      --card-accent: rgba(26, 21, 17, 0.9);
-      --text: #f7f2e8;
-      --muted: #b8b2a5;
-      --accent: #e4c590;
-      --accent-strong: #f3d9a4;
-      --border: rgba(255, 255, 255, 0.08);
-      --shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+      --bg: #f8f4ec;
+      --ink: #1e1b18;
+      --accent: #c29b6b;
+      --accent-soft: #c7d1c0;
+      --line: #e3ddcf;
+      --card: rgba(255, 255, 255, 0.82);
+      --shadow: 0 24px 60px rgba(30, 27, 24, 0.08);
       --radius: 18px;
-      --max-width: 1140px;
-      --gutter: 26px;
-      --transition: 180ms ease;
+      --max-width: 1080px;
+      --muted: #4d463d;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: "Inter", "SF Pro Display", "Helvetica Neue", Arial, system-ui, -apple-system, sans-serif;
-      background: var(--bg-gradient), var(--bg);
-      color: var(--text);
+      font-family: "Inter", "Helvetica", Arial, system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      letter-spacing: 0.01em;
       -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+    a { color: inherit; text-decoration: none; }
 
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
       backdrop-filter: blur(12px);
-      background: rgba(12, 12, 15, 0.86);
-      border-bottom: 1px solid var(--border);
+      background: rgba(248, 244, 236, 0.9);
+      border-bottom: 1px solid var(--line);
     }
 
     .nav {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 16px var(--gutter);
-      display: grid;
-      grid-template-columns: 1fr auto auto;
+      padding: 16px 28px;
+      display: flex;
       align-items: center;
-      gap: 12px;
+      justify-content: space-between;
+      gap: 16px;
     }
 
     .brand {
       font-weight: 700;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      font-size: 13px;
-      display: inline-flex;
+      font-size: 14px;
+      display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
-    .brand span.dot {
-      width: 6px;
-      height: 6px;
+    .brand .dot {
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: var(--accent);
       display: inline-block;
     }
 
-    nav {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
+    nav { display: flex; gap: 14px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+    nav a { padding: 6px 0; }
+    nav a:hover { color: var(--ink); }
 
-    nav a:hover {
-      color: var(--accent);
-    }
+    .page { min-height: 100vh; }
 
-    .nav-ctas {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
+    main { display: grid; gap: 96px; }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition);
-      font-size: 14px;
-    }
+    section { padding: 86px 28px 0; position: relative; overflow: hidden; }
 
-    .btn-primary {
-      background: linear-gradient(120deg, var(--accent) 0%, var(--accent-strong) 100%);
-      color: #1b130a;
-      box-shadow: 0 12px 26px rgba(228, 197, 144, 0.28);
-    }
+    .section-inner { max-width: var(--max-width); margin: 0 auto; }
 
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 32px rgba(228, 197, 144, 0.32);
-    }
+    .label { font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 14px; }
 
-    .btn-ghost,
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
+    h1, h2, h3, h4 { margin: 0; letter-spacing: -0.01em; }
+    p { margin: 0; line-height: 1.7; color: var(--muted); }
 
-    .btn-ghost:hover,
-    .btn-secondary:hover {
-      border-color: rgba(255, 255, 255, 0.16);
-      transform: translateY(-1px);
-    }
+    .hero { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(24px, 5vw, 48px); align-items: center; padding-top: 24px; }
 
-    main {
-      flex: 1;
-    }
+    .hero-title { font-size: clamp(40px, 6vw, 68px); line-height: 1.05; }
+    .hero-sub { margin-top: 16px; font-size: 18px; color: var(--muted); }
+    .meta { margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); }
 
-    section {
-      padding: 72px var(--gutter);
-    }
+    .hero-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .hero-card::after { content: ""; position: absolute; inset: 12px; border: 1px solid rgba(194, 155, 107, 0.28); border-radius: calc(var(--radius) - 8px); pointer-events: none; }
 
-    .section-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
+    .line-art { position: absolute; inset: 0; opacity: 0.22; pointer-events: none; }
 
-    .section-label {
-      font-size: 12px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--muted);
-      display: block;
-      margin-bottom: 12px;
-    }
+    .line-art svg { width: 100%; height: 100%; }
 
-    h1, h2, h3 {
-      margin: 0;
-      letter-spacing: -0.01em;
-    }
+    .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 18px; }
+    .card { padding: 16px 18px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255, 255, 255, 0.76); box-shadow: var(--shadow); }
+    .card h4 { font-size: 16px; color: var(--ink); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
 
-    p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+    .family-board { position: relative; margin-top: 22px; padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255, 255, 255, 0.78); box-shadow: var(--shadow); }
+    .family-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 16px; }
+    .family { padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255, 255, 255, 0.68); display: grid; gap: 6px; }
+    .family h4 { font-size: 15px; color: var(--ink); letter-spacing: 0.08em; text-transform: uppercase; }
+    .family .ingredients { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { padding: 6px 10px; border-radius: 999px; background: rgba(194, 155, 107, 0.08); border: 1px solid var(--line); font-size: 12px; color: var(--ink); }
 
-    .muted { color: var(--muted); }
+    .product-stack { display: grid; gap: 18px; margin-top: 22px; }
+    .product-card { position: relative; padding: 24px; border-radius: var(--radius); border: 1px solid var(--line); background: rgba(255, 255, 255, 0.84); box-shadow: var(--shadow); overflow: hidden; }
+    .product-card h3 { font-size: 22px; }
+    .price { color: var(--ink); font-weight: 700; font-size: 18px; }
+    .product-meta { display: flex; gap: 12px; flex-wrap: wrap; margin: 6px 0 10px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .bottle { width: 120px; height: 220px; position: absolute; right: clamp(12px, 6vw, 32px); top: 32px; opacity: 0.22; }
 
-    /* Hero */
-    .hero {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 32px;
-      align-items: center;
-      padding-top: 64px;
-    }
+    .cta-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 18px; border-radius: 999px; border: 1px solid var(--ink); background: var(--ink); color: #fefbf6; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; transition: transform 160ms ease, box-shadow 160ms ease; }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 30px rgba(30, 27, 24, 0.18); }
+    .btn.secondary { background: transparent; color: var(--ink); border-color: var(--line); }
 
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
+    .toggle { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); }
 
-    .pill .badge {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: #1b130a;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      letter-spacing: 0.08em;
-    }
+    .bundle { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255, 255, 255, 0.86); box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .bundle .bottle-row { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+    .mini-bottle { width: 34px; height: 70px; opacity: 0.36; }
 
-    .hero h1 {
-      font-size: clamp(36px, 5vw, 54px);
-      line-height: 1.1;
-      margin-bottom: 18px;
-    }
+    .faq { display: grid; gap: 12px; margin-top: 18px; }
+    .faq-item { padding: 14px 0; border-bottom: 1px solid var(--line); }
 
-    .hero h1 .highlight { color: var(--accent); }
+    footer { padding: 40px 28px 60px; color: var(--muted); border-top: 1px solid var(--line); margin-top: 40px; }
 
-    .hero p { margin-bottom: 14px; }
+    .scroll-cue { position: fixed; right: 22px; top: 50%; transform: translateY(-50%); writing-mode: vertical-rl; text-transform: uppercase; letter-spacing: 0.18em; font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 10px; z-index: 30; }
+    .scroll-cue::before { content: ""; width: 1px; height: 120px; background: var(--line); display: inline-block; }
 
-    .meta-line {
-      display: flex;
-      gap: 12px;
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 18px 0 26px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin: 12px 0 10px;
-    }
-
-    .hero-note {
-      font-size: 14px;
-      color: var(--accent-strong);
-      margin-top: 12px;
-    }
-
-    .hero-cards {
-      display: grid;
-      gap: 18px;
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)), var(--card);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      padding: 22px 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .card h3 { margin-bottom: 8px; font-size: 20px; }
-
-    .card .label { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 8px; }
-
-    .chips, .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 12px 0;
-    }
-
-    .chip, .tag {
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      font-size: 12px;
-      color: var(--text);
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .stat {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px dashed var(--border);
-      border-radius: 12px;
-      padding: 10px 12px;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .price-block {
-      text-align: right;
-      color: var(--accent);
-      font-weight: 700;
-      margin-top: 6px;
-    }
-
-    /* Steps */
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 28px;
-    }
-
-    .step {
-      padding: 18px;
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      display: grid;
-      gap: 10px;
-    }
-
-    .step h3 { font-size: 17px; }
-
-    /* Families */
-    .families-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 28px;
-    }
-
-    .family-card {
-      padding: 18px;
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      display: grid;
-      gap: 8px;
-      box-shadow: var(--shadow);
-    }
-
-    .family-card h4 { margin: 0; font-size: 18px; color: var(--accent); }
-
-    /* Shop */
-    .shop-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .product-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      display: grid;
-      gap: 12px;
-      box-shadow: var(--shadow);
-    }
-
-    .product-card .tagline {
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .price-line {
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .note { font-size: 13px; color: var(--muted); }
-
-    .cta-row { display: flex; gap: 10px; flex-wrap: wrap; }
-
-    /* Custom */
-    .custom-grid, .faq-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .list { padding-left: 18px; color: var(--muted); line-height: 1.7; }
-
-    .list li + li { margin-top: 6px; }
-
-    /* FAQ */
-    .faq-item { padding: 14px 0; border-bottom: 1px solid var(--border); }
-
-    .faq-item h4 { margin: 0 0 8px; }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 20px var(--gutter);
-      background: #080809;
-    }
-
-    .footer-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--muted);
-      font-size: 14px;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    /* Responsive */
-    @media (max-width: 1100px) {
-      .nav { grid-template-columns: 1fr auto; grid-template-areas: "brand ctas" "nav nav"; }
-      nav { grid-area: nav; flex-wrap: wrap; }
-    }
+    .divider { margin: 42px 0 12px; border-top: 1px solid var(--line); width: 100%; }
 
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
-      .steps-grid { grid-template-columns: repeat(2, 1fr); }
-      .families-grid { grid-template-columns: repeat(2, 1fr); }
-      .products-grid { grid-template-columns: repeat(2, 1fr); }
-      .custom-grid, .faq-grid { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 640px) {
-      nav { display: none; }
-      .nav { grid-template-columns: 1fr auto; }
-      .hero-buttons { width: 100%; }
-      .btn { width: 100%; justify-content: center; }
-      .steps-grid { grid-template-columns: 1fr; }
-      .families-grid { grid-template-columns: 1fr; }
-      .products-grid { grid-template-columns: 1fr; }
-      section { padding: 64px 18px; }
+      header { position: sticky; }
+      .bottle { display: none; }
+      .scroll-cue { display: none; }
     }
   </style>
 </head>
@@ -452,93 +151,69 @@
       <div class="nav">
         <div class="brand">FORMA <span class="dot"></span> PARFUM</div>
         <nav>
-          <a href="#how-it-works" data-scroll>Process</a>
-          <a href="#families" data-scroll>Scent Families</a>
-          <a href="#shop" data-scroll>Shop</a>
-          <a href="#custom" data-scroll>Custom</a>
-          <a href="#faq" data-scroll>FAQ</a>
+          <a href="#guide">Framework</a>
+          <a href="#families">Ingredients</a>
+          <a href="#shop">Shop</a>
+          <a href="#faq">FAQ</a>
         </nav>
-        <div class="nav-ctas">
-          <a class="btn btn-ghost" href="#shop" data-scroll>View Collection</a>
-          <a class="btn btn-primary" href="#custom" data-scroll>Make Your Own</a>
-        </div>
       </div>
     </header>
 
+    <div class="scroll-cue">Infinite coastline story</div>
+
     <main>
       <section id="top">
+        <div class="line-art" aria-hidden="true">
+          <svg viewBox="0 0 1200 720" preserveAspectRatio="none">
+            <g fill="none" stroke="var(--line)" stroke-width="1.2">
+              <circle cx="200" cy="220" r="140" />
+              <circle cx="320" cy="260" r="120" />
+              <circle cx="260" cy="380" r="160" />
+              <path d="M640 120c42 22 80 60 76 108-6 72-84 110-146 94-44-12-70-48-76-88" />
+              <path d="M720 320c50 30 88 96 62 152-30 62-116 80-178 54-46-20-72-54-78-94" />
+              <path d="M580 96c8-28 34-54 70-56 32-2 68 20 72 52" />
+              <path d="M126 520c30-36 88-50 136-32 46 16 74 60 66 104" />
+              <path d="M440 480c22-12 52-12 78 2s46 42 48 68" />
+              <path d="M960 220c-40-18-90-2-110 44-16 36-10 84 18 118 36 44 98 52 140 16" />
+              <path d="M980 480c-18 12-32 32-32 54s18 44 42 52c20 6 40 2 54-8" />
+            </g>
+          </svg>
+        </div>
         <div class="section-inner hero">
-          <div class="hero-text">
-            <div class="pill"><span class="badge">FP</span> Custom perfume studio • CDMX</div>
-            <h1>Perfume,<br><span class="highlight">shaped to your story.</span></h1>
-            <p>Forma Parfum lets you build your own fragrance from curated scent families, or shop ready-made blends crafted with the same structure we use in the studio. Designed for layering, discovery, and play.</p>
-            <div class="meta-line">
-              <span>TOP • HEART • BASE</span>
-              <span>Guided structure, intuitive choices.</span>
+          <div>
+            <span class="label">Hamptons-made • Natural perfume</span>
+            <h1 class="hero-title">Perfume, shaped to your story.</h1>
+            <p class="hero-sub">Only the most natural and organic ingredients. Hand-poured in the Hamptons, inspired by dune grass, salt spray, and linen-wrapped afternoons.</p>
+            <div class="meta">
+              <span>Crafted with structure</span>
+              <span>Worn with instinct</span>
+              <span>Hamptons-made, naturally</span>
             </div>
-            <div class="hero-buttons">
-              <a class="btn btn-primary" href="#custom" data-scroll>Start your formula →</a>
-              <a class="btn btn-ghost" href="#shop" data-scroll>Browse the collection</a>
-            </div>
-            <div class="hero-note">New: Forma Session – a guided blending experience where we build your signature in under an hour.</div>
           </div>
-
-          <div class="hero-cards">
-            <div class="card">
-              <span class="label">Signature Session • Studio / Remote</span>
-              <h3>Make Your Own Perfume</h3>
-              <p>Choose from our scent families to fill your top, heart, and base notes. We guide the proportions; you choose the personality.</p>
-              <div class="chips">
-                <span class="chip">Citrus + Fresh</span>
-                <span class="chip">Floral</span>
-                <span class="chip">Woody &amp; Resinous</span>
-                <span class="chip">Musk &amp; Skin</span>
-              </div>
-              <div class="stats">
-                <div class="stat">40+ accords – Curated by family so you never feel lost.</div>
-                <div class="stat">One clear structure – Top, heart, base – explained as you build.</div>
-              </div>
-            </div>
-
-            <div class="card" style="background: linear-gradient(160deg, rgba(228, 197, 144, 0.08), rgba(255, 255, 255, 0.02)), var(--card-accent);">
-              <span class="label">For explorers</span>
-              <h3>Discovery Board</h3>
-              <p>Mini vials mapped to our scent families so you can test, layer, and sketch ideas at home.</p>
-              <div class="price-block">
-                <div>from $48</div>
-                <small class="muted">Ships worldwide</small>
-              </div>
-              <div class="tags">
-                <span class="tag">Layer-friendly</span>
-                <span class="tag">Scent families</span>
-                <span class="tag">Try before blending</span>
-              </div>
-            </div>
+          <div class="hero-card">
+            <h3>New coastal batch</h3>
+            <p>Italian bergamot, Hamptons sea salt, Egyptian jasmine, Himalayan cedar, roasted fig leaf. Slow luxury meets sea air.</p>
+            <div class="meta" style="margin-top:12px; color: var(--muted);"><span>Small-batch</span><span>Organic alcohol</span><span>No synthetic dyes</span></div>
           </div>
         </div>
       </section>
 
-      <section id="how-it-works">
+      <section id="guide">
         <div class="section-inner">
-          <span class="section-label">How it works</span>
-          <h2>A clear framework for building your scent</h2>
-          <p class="muted" style="max-width: 760px; margin-top: 10px;">We break perfume into simple decisions so you never have to guess. Every custom bottle follows the same architecture: top, heart, and base, chosen from our scent families.</p>
-          <div class="steps-grid">
-            <div class="step">
-              <h3>1. Choose your mood</h3>
-              <p>Decide what you want the fragrance to say: bright, soft, dark, intimate, loud. This defines your main scent family.</p>
+          <span class="label">Framework</span>
+          <h2>Three-part structure, then instinct takes over.</h2>
+          <div class="guide-grid">
+            <div class="card">
+              <h4>Top</h4>
+              <p>Bright lift that greets first: Italian bergamot zest, Amalfi lemon leaf, cold-pressed grapefruit.</p>
             </div>
-            <div class="step">
-              <h3>2. Pick scent families</h3>
-              <p>Select your top, heart, and base families (for example: Citrus • Floral • Woody). We show you how they interact.</p>
+            <div class="card">
+              <h4>Heart</h4>
+              <p>Where the story settles: Moroccan neroli, Egyptian jasmine sambac, dew rose, chamomile tea.</p>
             </div>
-            <div class="step">
-              <h3>3. Fine-tune the notes</h3>
-              <p>Within each family we narrow down to specific accords like bergamot, jasmine, or cedar, guided by our blending rules.</p>
-            </div>
-            <div class="step">
-              <h3>4. We mix &amp; bottle</h3>
-              <p>You approve the formula, we blend it, name it, and send you your finished bottle plus a record of the recipe.</p>
+            <div class="card">
+              <h4>Base</h4>
+              <p>Quiet depth that lingers: Himalayan cedar, sandalwood chips, vanilla bean husk, soft musk accord.</p>
             </div>
           </div>
         </div>
@@ -546,49 +221,67 @@
 
       <section id="families">
         <div class="section-inner">
-          <span class="section-label">Scent families</span>
-          <h2>The map behind every formula</h2>
-          <p class="muted" style="max-width: 760px; margin-top: 10px;">Each family is a cluster of notes that behave in similar ways on skin. We use them like building blocks to keep the process creative but controlled.</p>
-          <div class="families-grid">
-            <div class="family-card">
-              <h4>Citrus</h4>
-              <p>Bergamot, grapefruit, lemon, neroli.</p>
-              <div class="tags"><span class="tag">Bright</span><span class="tag">Effervescent</span><span class="tag">Opening</span></div>
-            </div>
-            <div class="family-card">
-              <h4>Floral</h4>
-              <p>Jasmine, rose, orange blossom, iris.</p>
-              <div class="tags"><span class="tag">Romantic</span><span class="tag">Classic</span><span class="tag">Heart</span></div>
-            </div>
-            <div class="family-card">
-              <h4>Fruity &amp; Gourmand</h4>
-              <p>Fig, pear, vanilla, tonka, praline.</p>
-              <div class="tags"><span class="tag">Edible</span><span class="tag">Playful</span><span class="tag">Comforting</span></div>
-            </div>
-            <div class="family-card">
-              <h4>Fresh &amp; Ozonic</h4>
-              <p>Marine, linen, airy musk, herbal greens.</p>
-              <div class="tags"><span class="tag">Clean</span><span class="tag">Minimal</span><span class="tag">Everyday</span></div>
-            </div>
-            <div class="family-card">
-              <h4>Woody</h4>
-              <p>Cedar, sandalwood, vetiver.</p>
-              <div class="tags"><span class="tag">Grounded</span><span class="tag">Dry</span><span class="tag">Base</span></div>
-            </div>
-            <div class="family-card">
-              <h4>Resinous</h4>
-              <p>Amber, incense, labdanum, benzoin.</p>
-              <div class="tags"><span class="tag">Warm</span><span class="tag">Dim-lit</span><span class="tag">Smoke</span></div>
-            </div>
-            <div class="family-card">
-              <h4>Musk &amp; Skin</h4>
-              <p>Skin musks, soft woods, faint florals.</p>
-              <div class="tags"><span class="tag">Intimate</span><span class="tag">Close</span><span class="tag">Layering</span></div>
-            </div>
-            <div class="family-card">
-              <h4>Experimental</h4>
-              <p>Smoke, metal, ink, mineral &amp; odd notes.</p>
-              <div class="tags"><span class="tag">Conceptual</span><span class="tag">Offbeat</span><span class="tag">Art</span></div>
+          <span class="label">Ingredient map</span>
+          <h2>Board-inspired scent families</h2>
+          <div class="family-board">
+            <p>Venn-style overlaps from citrus lift to resinous warmth, with sketches of petals, leaves, and wood rings from the latest scent board.</p>
+            <div class="family-grid">
+              <div class="family">
+                <h4>Citrus</h4>
+                <div class="ingredients">
+                  <span class="tag">Italian bergamot</span>
+                  <span class="tag">Amalfi lemon leaf</span>
+                </div>
+              </div>
+              <div class="family">
+                <h4>Floral</h4>
+                <div class="ingredients">
+                  <span class="tag">Moroccan neroli</span>
+                  <span class="tag">Egyptian jasmine</span>
+                </div>
+              </div>
+              <div class="family">
+                <h4>Fresh</h4>
+                <div class="ingredients">
+                  <span class="tag">Sea spray accord</span>
+                  <span class="tag">Linen musk</span>
+                </div>
+              </div>
+              <div class="family">
+                <h4>Fruity &amp; Gourmand</h4>
+                <div class="ingredients">
+                  <span class="tag">Roasted fig leaf</span>
+                  <span class="tag">Pear skin</span>
+                </div>
+              </div>
+              <div class="family">
+                <h4>Woody</h4>
+                <div class="ingredients">
+                  <span class="tag">Himalayan cedar</span>
+                  <span class="tag">Sandalwood chips</span>
+                </div>
+              </div>
+              <div class="family">
+                <h4>Resinous</h4>
+                <div class="ingredients">
+                  <span class="tag">Labdanum resin</span>
+                  <span class="tag">Amber sap</span>
+                </div>
+              </div>
+              <div class="family">
+                <h4>Musk &amp; Skin</h4>
+                <div class="ingredients">
+                  <span class="tag">Raw cotton</span>
+                  <span class="tag">White musk accord</span>
+                </div>
+              </div>
+              <div class="family">
+                <h4>Experimental</h4>
+                <div class="ingredients">
+                  <span class="tag">Shiso leaf</span>
+                  <span class="tag">Salted hay</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -596,147 +289,113 @@
 
       <section id="shop">
         <div class="section-inner">
-          <div class="shop-header">
-            <div>
-              <span class="section-label">Shop</span>
-              <h2>Forma Parfum collection</h2>
-              <p class="muted" style="max-width: 720px; margin-top: 10px;">Ready-to-wear fragrances and tools that use the same structure as our custom sessions. Designed for layering or wearing alone.</p>
-            </div>
-            <div style="text-align: right; color: var(--muted); font-size: 13px;">
-              <div style="letter-spacing: 0.12em; text-transform: uppercase;">Online orders</div>
-              <div>All prices in USD • Ships from CDMX</div>
-            </div>
-          </div>
-
-          <div class="products-grid">
-            <div class="product-card">
-              <div class="tagline">Custom • Session</div>
-              <h3>Make Your Own Perfume</h3>
-              <p>A guided 60–75 minute session (in-studio or virtual) where we build your formula from our scent families, then bottle it with your chosen name.</p>
-              <div class="price-line">$165 / 50 ml bottle</div>
-              <div class="note">Re-orders at a lower rate once your formula is saved.</div>
-              <div class="tags">
-                <span class="tag">Includes consultation</span>
-                <span class="tag">Formula archived</span>
-                <span class="tag">Refills available</span>
+          <span class="label">Collection</span>
+          <h2>Hamptons bottles, poured to order</h2>
+          <div class="product-stack">
+            <div class="product-card" data-base="https://buy.stripe.com/PLACEHOLDER_small_base" data-custom="https://buy.stripe.com/PLACEHOLDER_small_custom">
+              <svg class="bottle" viewBox="0 0 120 240" aria-hidden="true">
+                <rect x="28" y="28" width="64" height="140" rx="16" fill="none" stroke="var(--ink)" stroke-width="1.4" />
+                <rect x="38" y="12" width="44" height="24" rx="8" fill="none" stroke="var(--ink)" stroke-width="1.2" />
+                <rect x="36" y="56" width="48" height="70" rx="12" fill="none" stroke="var(--accent)" stroke-width="1.2" />
+              </svg>
+              <h3>Small bottle</h3>
+              <div class="product-meta">
+                <span>30 ml</span>
+                <span>Amber glass • sand linen label</span>
               </div>
+              <p>Bright citrus opening with coastal salt, softened by neroli and fig leaf. Perfect introduction size, Hamptons-made and fully natural.</p>
+              <div class="price">$100 USD</div>
               <div class="cta-row">
-                <!-- TODO: Replace with Stripe Payment Link for Make Your Own Perfume session -->
-                <a class="btn btn-primary" href="https://buy.stripe.com/PLACEHOLDER_custom_session" target="_blank" rel="noopener">Book &amp; Pay</a>
-                <a class="btn btn-secondary" href="#how-it-works" data-scroll>See how it works</a>
+                <!-- TODO: Replace with Stripe Payment Link for SMALL base bottle -->
+                <a class="btn purchase" href="https://buy.stripe.com/PLACEHOLDER_small_base" target="_blank" rel="noopener">Purchase</a>
+                <label class="toggle"><input type="checkbox" class="custom-toggle" /> Add bottle customization +$20</label>
               </div>
             </div>
 
-            <div class="product-card">
-              <div class="tagline">Set • Discovery</div>
-              <h3>Scent Family Discovery Set</h3>
-              <p>Eight 2 ml vials that map across our key scent families, plus a simple workbook for sketching your dream formula.</p>
-              <div class="price-line">$48 / 8×2 ml</div>
-              <div class="note">Session credit: apply $25 toward a custom bottle later.</div>
-              <div class="tags">
-                <span class="tag">Citrus</span>
-                <span class="tag">Floral</span>
-                <span class="tag">Woody</span>
-                <span class="tag">Musk</span>
+            <div class="product-card" data-base="https://buy.stripe.com/PLACEHOLDER_medium_base" data-custom="https://buy.stripe.com/PLACEHOLDER_medium_custom">
+              <svg class="bottle" viewBox="0 0 120 240" aria-hidden="true">
+                <rect x="22" y="20" width="76" height="168" rx="18" fill="none" stroke="var(--ink)" stroke-width="1.4" />
+                <rect x="36" y="0" width="48" height="26" rx="10" fill="none" stroke="var(--ink)" stroke-width="1.2" />
+                <rect x="32" y="62" width="56" height="90" rx="14" fill="none" stroke="var(--accent)" stroke-width="1.2" />
+              </svg>
+              <h3>Medium bottle</h3>
+              <div class="product-meta">
+                <span>50 ml</span>
+                <span>Frosted glass • metal cap</span>
               </div>
+              <p>Heart-forward jasmine sambac and neroli with sea grass and cedar threads. Ideal everyday wear with organic alcohol and no dyes.</p>
+              <div class="price">$175 USD</div>
               <div class="cta-row">
-                <!-- TODO: Replace with Stripe Payment Link for Scent Family Discovery Set -->
-                <a class="btn btn-primary" href="https://buy.stripe.com/PLACEHOLDER_discovery_set" target="_blank" rel="noopener">Add to cart</a>
-                <a class="btn btn-secondary" href="#families" data-scroll>View scent families</a>
+                <!-- TODO: Replace with Stripe Payment Link for MEDIUM base bottle -->
+                <a class="btn purchase" href="https://buy.stripe.com/PLACEHOLDER_medium_base" target="_blank" rel="noopener">Purchase</a>
+                <label class="toggle"><input type="checkbox" class="custom-toggle" /> Add bottle customization +$20</label>
               </div>
             </div>
 
-            <div class="product-card">
-              <div class="tagline">Ready-made • Eau de Parfum</div>
-              <h3>FORMA 01 — Citrus / Skin</h3>
-              <p>Effervescent bergamot over cotton-clean musks and a whisper of cedar. Built to feel like your favorite white T-shirt.</p>
-              <div class="price-line">$120 / 50 ml</div>
-              <div class="note">Layer with experimental or gourmand sketches.</div>
-              <div class="tags">
-                <span class="tag">Citrus</span>
-                <span class="tag">Fresh</span>
-                <span class="tag">Musk &amp; Skin</span>
+            <div class="product-card" data-base="https://buy.stripe.com/PLACEHOLDER_large_base" data-custom="https://buy.stripe.com/PLACEHOLDER_large_custom">
+              <svg class="bottle" viewBox="0 0 120 240" aria-hidden="true">
+                <rect x="18" y="10" width="84" height="192" rx="20" fill="none" stroke="var(--ink)" stroke-width="1.4" />
+                <rect x="34" y="-6" width="52" height="26" rx="12" fill="none" stroke="var(--ink)" stroke-width="1.2" />
+                <rect x="30" y="70" width="60" height="100" rx="16" fill="none" stroke="var(--accent)" stroke-width="1.2" />
+              </svg>
+              <h3>Large bottle</h3>
+              <div class="product-meta">
+                <span>100 ml</span>
+                <span>Clear glass • sand linen wrap</span>
               </div>
+              <p>Signature diffusion: amber sap, cedar, salted hay, and soft musk linger through dusk. Hand-poured for those already in love.</p>
+              <div class="price">$225 USD</div>
               <div class="cta-row">
-                <!-- TODO: Replace with Stripe Payment Link for FORMA 01 bottle -->
-                <a class="btn btn-primary" href="https://buy.stripe.com/PLACEHOLDER_forma01" target="_blank" rel="noopener">Buy bottle</a>
-                <a class="btn btn-secondary" href="#custom" data-scroll>Customise your own</a>
+                <!-- TODO: Replace with Stripe Payment Link for LARGE base bottle -->
+                <a class="btn purchase" href="https://buy.stripe.com/PLACEHOLDER_large_base" target="_blank" rel="noopener">Purchase</a>
+                <label class="toggle"><input type="checkbox" class="custom-toggle" /> Add bottle customization +$20</label>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="custom">
-        <div class="section-inner">
-          <span class="section-label">Custom experience</span>
-          <h2>Forma Session: build your own perfume</h2>
-          <p class="muted" style="max-width: 760px; margin-top: 10px;">You don’t need to “know perfume” to make something beautiful. We use a clear framework and a limited palette so you can focus on instinct instead of chemistry.</p>
-          <div class="custom-grid">
-            <div class="card">
-              <h3>What you get</h3>
-              <ul class="list">
-                <li>Guided 1:1 session in our studio or over video.</li>
-                <li>A finished 50 ml bottle of your custom fragrance, labeled with your chosen name.</li>
-                <li>Formula archived so you can reorder, tweak, or build flanker scents later.</li>
-                <li>Optional add-ons: travel spray, discovery vials for friends, layerable ‘sketches’.</li>
-              </ul>
-              <h3 style="margin-top: 12px;">Before you book</h3>
-              <ul class="list">
-                <li>Choose in-studio (CDMX) or remote. For remote, we ship a discovery kit first.</li>
-                <li>Have 2–3 reference scents in mind (things you like or hate).</li>
-                <li>Expect to smell a lot. Comfortable clothes, clear nose, and a bit of patience recommended.</li>
-              </ul>
-            </div>
-            <div class="card">
-              <div class="label">Booking</div>
-              <h3>Reserve your spot</h3>
-              <p>Choose your date and time, pay online, and we’ll follow up with a short intake form so we can prep a palette tailored to you.</p>
-              <div class="price-line">$165 / per person</div>
-              <div class="note">Small groups or private events available on request.</div>
-              <div class="cta-row" style="margin-top: 12px;">
-                <!-- TODO: Replace with Stripe Payment Link for Forma Session booking -->
-                <a class="btn btn-primary" href="https://buy.stripe.com/PLACEHOLDER_forma_session_booking" target="_blank" rel="noopener">Book now</a>
-                <a class="btn btn-secondary" href="mailto:hello@formaparfum.com">Email for events</a>
-              </div>
-              <div class="note" style="margin-top: 10px;">Questions before booking? Write us at hello@formaparfum.com.</div>
-            </div>
+      <section id="bundle">
+        <div class="section-inner bundle" data-base="https://buy.stripe.com/PLACEHOLDER_group_pack" data-custom="https://buy.stripe.com/PLACEHOLDER_group_pack_custom">
+          <span class="label">Group pack</span>
+          <h2>5-bottle coastal set — 15% off</h2>
+          <p>For weddings, houseguests, Hamptons retreats, and thank-you gifting. Five bottles across our core blend with linen labels, ready for place cards or welcome totes.</p>
+          <div class="product-meta"><span>Includes five 50 ml bottles</span><span>15% savings vs. individual</span></div>
+          <div class="bottle-row">
+            <svg class="mini-bottle" viewBox="0 0 50 120" aria-hidden="true"><rect x="10" y="18" width="30" height="82" rx="10" fill="none" stroke="var(--ink)" stroke-width="1.2" /></svg>
+            <svg class="mini-bottle" viewBox="0 0 50 120" aria-hidden="true"><rect x="10" y="18" width="30" height="82" rx="10" fill="none" stroke="var(--ink)" stroke-width="1.2" /></svg>
+            <svg class="mini-bottle" viewBox="0 0 50 120" aria-hidden="true"><rect x="10" y="18" width="30" height="82" rx="10" fill="none" stroke="var(--ink)" stroke-width="1.2" /></svg>
+            <svg class="mini-bottle" viewBox="0 0 50 120" aria-hidden="true"><rect x="10" y="18" width="30" height="82" rx="10" fill="none" stroke="var(--ink)" stroke-width="1.2" /></svg>
+            <svg class="mini-bottle" viewBox="0 0 50 120" aria-hidden="true"><rect x="10" y="18" width="30" height="82" rx="10" fill="none" stroke="var(--ink)" stroke-width="1.2" /></svg>
+          </div>
+          <div class="price">$744 USD (15% off applied in Stripe)</div>
+          <div class="cta-row">
+            <!-- TODO: Replace with Stripe Payment Link for GROUP PACK base -->
+            <a class="btn purchase" href="https://buy.stripe.com/PLACEHOLDER_group_pack" target="_blank" rel="noopener">Purchase group pack</a>
+            <label class="toggle"><input type="checkbox" class="custom-toggle" /> Add bottle customization +$20</label>
           </div>
         </div>
       </section>
 
       <section id="faq">
         <div class="section-inner">
-          <span class="section-label">FAQ &amp; Contact</span>
-          <h2>Good to know before you order</h2>
-          <div class="faq-grid">
-            <div class="card">
-              <div class="faq-item">
-                <h4>Where are you based?</h4>
-                <p>Forma Parfum works out of Mexico City. We currently ship domestically and to select international locations; if your country isn’t listed at checkout, email us and we’ll see what’s possible.</p>
-              </div>
-              <div class="faq-item">
-                <h4>How long does a custom fragrance take?</h4>
-                <p>The live session is usually 60–75 minutes. After that, we mix, macerate, and bottle your perfume. Most orders ship within 10–14 days depending on volume and season.</p>
-              </div>
-              <div class="faq-item">
-                <h4>Can I reorder my formula later?</h4>
-                <p>Yes. We store your formula under a unique ID. You can reorder the exact same blend or request minor adjustments (stronger, softer, more of a certain family).</p>
-              </div>
-              <div class="faq-item" style="border-bottom: none;">
-                <h4>Do you work with events, teams, or wedding scenting?</h4>
-                <p>Absolutely. We create themed scent bars, group blending sessions, or custom scents for weddings and launches. Reach out with dates, size, and budget so we can propose options.</p>
-              </div>
+          <span class="label">FAQ &amp; Contact</span>
+          <div class="faq">
+            <div class="faq-item">
+              <h3>Where are bottles made?</h3>
+              <p>In the Hamptons studio, blended with organic alcohol and naturally derived absolutes. Each bottle is hand-poured, rested, and wrapped in linen labels.</p>
             </div>
-            <div class="card" style="height: fit-content;">
-              <span class="label">Contact</span>
-              <h3>Say hello</h3>
-              <p>For questions, private bookings, or collaborations, send us a note. We usually reply within 1–2 business days.</p>
-              <div class="tags" style="margin-top: 14px;">
-                <a class="tag" href="mailto:hello@formaparfum.com">Email: hello@formaparfum.com</a>
-                <a class="tag" href="https://instagram.com/FORMAPARFUM" target="_blank" rel="noopener">Instagram: @FORMAPARFUM</a>
-                <span class="tag">Studio: Mexico City (by appointment only).</span>
-              </div>
+            <div class="faq-item">
+              <h3>How do I customize a bottle?</h3>
+              <p>Toggle “Add bottle customization” before checkout. We’ll engrave or print your chosen name or event wording. Custom pricing uses a separate Stripe link (+$20).</p>
+            </div>
+            <div class="faq-item">
+              <h3>Shipping &amp; maceration time</h3>
+              <p>Small batches rest for 5–7 days to settle. Domestic shipping from the Hamptons usually arrives within 3–5 business days after rest.</p>
+            </div>
+            <div class="faq-item" style="border-bottom:none;">
+              <h3>Contact</h3>
+              <p>Email <a href="mailto:hello@formaparfum.com">hello@formaparfum.com</a> for events, bridal scenting, or private studio visits.</p>
             </div>
           </div>
         </div>
@@ -744,30 +403,24 @@
     </main>
 
     <footer>
-      <div class="footer-inner">
-        <div>© <span id="year"></span> Forma Parfum. All rights reserved.</div>
-        <div>Crafted with structure • Worn with instinct.</div>
+      <div class="section-inner">
+        <div class="label" style="margin-bottom:6px;">Crafted with structure • Worn with instinct.</div>
+        <div>© <span id="year"></span> Forma Parfum. Hamptons-made, naturally.</div>
       </div>
     </footer>
   </div>
 
   <script>
-    // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Smooth scroll for data-scroll links
-    document.querySelectorAll('[data-scroll]').forEach(function (link) {
-      link.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href');
-        if (targetId.startsWith('#')) {
-          const target = document.querySelector(targetId);
-          if (target) {
-            e.preventDefault();
-            const offset = 72;
-            const top = target.offsetTop - offset;
-            window.scrollTo({ top, behavior: 'smooth' });
-          }
-        }
+    const productCards = document.querySelectorAll('[data-base][data-custom]');
+    productCards.forEach(card => {
+      const toggle = card.querySelector('.custom-toggle');
+      const button = card.querySelector('.purchase');
+      const base = card.getAttribute('data-base');
+      const custom = card.getAttribute('data-custom');
+      toggle?.addEventListener('change', () => {
+        button.href = toggle.checked ? custom : base;
       });
     });
   </script>
